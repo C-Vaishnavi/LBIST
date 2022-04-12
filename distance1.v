@@ -24,7 +24,7 @@ module distance1(
   
   
    // Combinational Logic
-  always @(*)
+  always @(CLK)
   begin
     bit_err = 8'b0;
     for (i=0;i<8;i=i+1) begin
@@ -43,16 +43,7 @@ module distance1(
      
    assign NUMBER = bit_err; 
 	
-//always@(*)
-//begin
-//if (bit_err ==1)
-//begin
-//  for(i=0;i<8;i=i+1)
-//    signal[i] = sign_out[i] +8'b0;
-//
-//end
-//end
-//
+
 assign RED_SIG = signal;
 	
 	

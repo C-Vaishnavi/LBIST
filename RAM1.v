@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    14:29:03 04/11/2022 
+// Create Date:    17:21:33 04/11/2022 
 // Design Name: 
 // Module Name:    RAM1 
 // Project Name: 
@@ -18,6 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
 module RAM1( data_out , data_in , addr , wr, clk
     );
 input [7:0] data_in;

@@ -18,25 +18,41 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module path( out , num , clk , reset , wr, addr
-    );
-	 input clk;
-	 input reset;
-	 input wr;
+module path;
+	 reg clk;
+	 reg reset;
+	 reg wr;
 	 
-	 input [7:0] addr;
+	reg [7:0] addr;
+	 wire [7:0] num;
+	  wire [7:0]out ,a  , b, c , red_out;
 	 
-	 reg [7:0] a , b, c ,red_out;
-	 output [7:0] num;
-	 output [7:0]out;
-	 
+	 integer k;
 
 lfsr_dd L1( clk , reset , a);
 buft B1(b , c, a, clk);
 distance1 D1 (clk , reset , b , c, num, red_out);
 RAM1 R1( out , red_out , addr , wr, clk);
 
+initial begin
+		
+		clk = 0;
+    #20 reset = 1;
+	 
+	 #20 reset =0;
+	  
+		
+		for(k =0;k<40;k =k+1)
+		begin
+		  
+		#10  addr = k+10 ; wr=1;
+		#10 wr =0;
+   end
+		
 
+	end
+	
+	always  #10 clk = ~clk;
 
 
 endmodule

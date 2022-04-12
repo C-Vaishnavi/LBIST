@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    14:50:49 04/11/2022 
+// Create Date:    17:22:40 04/11/2022 
 // Design Name: 
 // Module Name:    RAM1_tb 
 // Project Name: 
@@ -18,6 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
 module RAM1_tb;
 
 reg[7:0]addr;
@@ -41,11 +42,6 @@ data_in = k+1;
 #10 wr =0; clk = 0;
 end
 
-repeat(20)
-begin
-#10 wr =0; clk =1;
-$display("Address : %5d , data : %4d ",addr, data_in);
-end
 
 end
 

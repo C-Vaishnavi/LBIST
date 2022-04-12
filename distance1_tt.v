@@ -34,15 +34,8 @@ module distance1_tb;
 	wire [7:0] NUMBER;
 	wire [7:0] RED_SIG;
 
-	// Instantiate the Unit Under Test (UUT)
-	distance1 uut (
-		.CLK(CLK), 
-		.RST(RST), 
-		.SIG_IN(SIG_IN), 
-		.SIG_OUT(SIG_OUT), 
-		.NUMBER(NUMBER),
-		.RED_SIG(RED_SIG)
-	);
+	
+	distance1 DUT (CLK, RST , SIG_IN , SIG_OUT, NUMBER, RED_SIG);
 
 	initial begin
 		// Initialize Inputs
@@ -51,34 +44,38 @@ module distance1_tb;
 		SIG_IN = 0;
 		SIG_OUT = 0;
 
-		// Wait 100 ns for global reset to finish
-		#100;
+		
+		#20;
         
       RST = 1;
 		SIG_IN = 54;
 		SIG_OUT = 22;
-		#100;
+		#20;
         
 		  RST =0;
 		  SIG_IN = 235;
-		SIG_OUT = 43;
-		#100;
+		 SIG_OUT = 43;
+		#20;
 		
-		 RST =0;
+		
 		  SIG_IN = 35;
 		SIG_OUT = 53;
-		#100;
+		#20;
 		
 		
-		 RST =0;
+		
 		  SIG_IN = 64;
 		SIG_OUT = 84;
-		#100;
+		#20;
 		
-		RST =0;
+		
 		 SIG_IN = 20;
 		SIG_OUT = 63;
-		#100;
+		#20;
+		
+		 SIG_IN = 64;
+		SIG_OUT = 64;
+		#20;
 		
 		
 		

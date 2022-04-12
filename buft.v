@@ -25,10 +25,10 @@ input clk;
 output reg[7:0] data1 , data2 ;
 
 always @(posedge clk)
-   data2 = inp;
+  #10  data2 <= inp;
 	
 always @(negedge clk)
-	data1 = data2;
+	data1 <= data2;
 	
 
 endmodule
