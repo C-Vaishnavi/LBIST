@@ -12,9 +12,9 @@ module dff1(clk,reset,d,q
 	  always @(posedge clk)
 	  begin    
 	  if(reset)   
-	  q=1;  
+	  q<=1;  
 	  else    
-	  q=d;   
+	  q<=d;   
 	  end  
 
 endmodule

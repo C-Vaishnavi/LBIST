@@ -19,21 +19,45 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-module RAM1( data_out , data_in , addr , wr, clk
+module RAM1( data_out ,con_addr ,  data_in , wr, clk
     );
 input [7:0] data_in;
 input  wr, clk;
-input [7:0] addr;
+output [7:0] con_addr;
 
-output [7:0] data_out;
+reg[7:0] addr;
+
+output  [7:0] data_out;
 
 reg [7:0] mem [255:0] ;
 
+
+initial
+begin
+ addr = 8'b0;
+ end
+ 
+
 assign data_out = mem[addr] ;
 
-always @ (posedge clk)
- if(wr) mem[addr] = data_in ;
+
+always @ (posedge clk ) 
+
+begin
+
+if(data_in)
+begin
+ if(wr ) 
+ begin
+ addr = addr +1;
+ mem[addr] <= data_in ;
+// $display(" mem :  %d   data_in : %d  " ,addr , data_in ); 
+ end
+ end
  
+
+end
+  assign con_addr = addr;
 
 
 endmodule

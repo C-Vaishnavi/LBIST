@@ -9,8 +9,8 @@ module distance1(
   output [7:0] NUMBER,
   output [7:0] RED_SIG
 );
-
-  integer i;
+    
+  integer i ;
   reg[7:0] sign_in;
   reg[7:0] sign_out;
 
@@ -23,9 +23,10 @@ module distance1(
   reg [7:0] signal;
   
   
-   // Combinational Logic
+   
   always @(CLK)
   begin
+    
     bit_err = 8'b0;
     for (i=0;i<8;i=i+1) begin
       if (sign_in[i] == sign_out[i]) begin
@@ -36,15 +37,19 @@ module distance1(
     end
 	 
 	 if((bit_err == 1) ||(bit_err ==2) ||(bit_err ==0) )
+	  begin
 	   signal = sign_out;
+		
+		end
+		
+		else
+		signal = 8'b0;
 	 
   end
   
      
    assign NUMBER = bit_err; 
-	
-
-assign RED_SIG = signal;
+	assign RED_SIG = signal;
 	
 	
 	
